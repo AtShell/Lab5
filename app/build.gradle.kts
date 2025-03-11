@@ -2,12 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    alias(libs.plugins.devtoolsKsp)
+    alias(libs.plugins.kapt)
 }
 
 android {
     namespace = "com.example.lab5"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.example.lab5"
         minSdk = 30
@@ -16,6 +18,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        kapt {
+            arguments {arg("room.schemaLocation", "$projectDir/schemas")}
+        }
     }
 
     buildTypes {
@@ -36,6 +41,8 @@ android {
     }
     buildFeatures {
         compose = true
+        dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -49,6 +56,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -56,4 +67,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation (libs.androidx.runtime.livedata)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    annotationProcessor(libs.androidx.room.room.compiler)
+    ksp(libs.androidx.room.room.compiler)
 }
