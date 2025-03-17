@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         setUpSpinners()
     }
-
+//test ya-tracker
     private fun addStatisticButtonPressed() {
         if (isEditTextsEmpty()) {
             viewModel.insertNewStatisticDataInDatabase(
