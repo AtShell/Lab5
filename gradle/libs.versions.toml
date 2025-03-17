@@ -1,5 +1,7 @@
 [versions]
 agp = "8.8.2"
+koinAndroid = "3.2.1"
+koinCore = "3.2.1"
 kotlin = "2.0.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -16,6 +18,9 @@ appcompat = "1.7.0"
 recyclerview = "1.4.0"
 constraintlayout = "2.2.1"
 material = "1.12.0"
+junitJupiter = "5.8.1"
+runner = "1.6.1"
+junitKtx = "1.2.1"
 
 
 [libraries]
@@ -42,7 +47,12 @@ androidx-runtime-livedata = { module = "androidx.compose.runtime:runtime-livedat
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
 
 [plugins]

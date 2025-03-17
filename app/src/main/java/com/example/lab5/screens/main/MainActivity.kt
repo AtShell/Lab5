@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.widget.SimpleAdapter
 import android.widget.Toast
 import com.example.lab5.Dependencies
+import com.example.lab5.appModule
 import com.example.lab5.databinding.ActivityMainBinding
 import com.example.lab5.screens.main.MainViewModel.Companion.TITLE_DIFFICULTY
 import com.example.lab5.screens.main.MainViewModel.Companion.TITLE_RESULT
 import com.example.lab5.screens.main.MainViewModel.Companion.difficultyCases
 import com.example.lab5.screens.main.MainViewModel.Companion.resultCases
 import com.example.lab5.screens.statistic.AllStatisticActivity
+import org.koin.core.context.startKoin
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by lazy { MainViewModel(Dependencies.statisticRepository) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        startKoin {
+            modules(appModule)
+        }
         Dependencies.init(applicationContext)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
